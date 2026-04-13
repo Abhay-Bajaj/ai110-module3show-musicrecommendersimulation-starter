@@ -241,5 +241,13 @@ A few sentences about what you learned:
 ## 8. Screenshots
 
 1. Working CLI
+![CLI Pop profile output](assets/WorkingCLI.png)
 
 2. Diverse Profiles
+![Profile 1](assets/Output1.png)
+![Profile 2](assets/Output2.png)
+![Profile 3](assets/Output3.png)
+![Profile 4](assets/Output4.png)
+![Profile 5](assets/Output5.png)
+![Profile 6](assets/Output6.png)
+

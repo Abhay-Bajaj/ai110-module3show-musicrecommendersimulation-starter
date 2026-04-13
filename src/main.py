@@ -37,38 +37,38 @@ def main() -> None:
             "target_energy": 0.80,
             "likes_acoustic": False
         }),
-        # ("High-Energy Pop", {
-        #     "favorite_genre": "pop",
-        #     "favorite_mood": "happy",
-        #     "target_energy": 0.90,
-        #     "likes_acoustic": False
-        # }),
-        # ("Chill Lofi", {
-        #     "favorite_genre": "lofi",
-        #     "favorite_mood": "focused",
-        #     "target_energy": 0.40,
-        #     "likes_acoustic": False
-        # }),
-        # ("Deep Intense Rock", {
-        #     "favorite_genre": "rock",
-        #     "favorite_mood": "intense",
-        #     "target_energy": 0.91,
-        #     "likes_acoustic": False
-        # }),
-        # # Edge case: high energy but sad mood
-        # ("Conflicted Listener", {
-        #     "favorite_genre": "folk",
-        #     "favorite_mood": "sad",
-        #     "target_energy": 0.90,
-        #     "likes_acoustic": True
-        # }),
-        # # Edge case: genre not in catalog
-        # ("Niche Taste", {
-        #     "favorite_genre": "metal",
-        #     "favorite_mood": "angry",
-        #     "target_energy": 0.95,
-        #     "likes_acoustic": False
-        # }),
+        ("High-Energy Pop", {
+            "favorite_genre": "pop",
+            "favorite_mood": "happy",
+            "target_energy": 0.90,
+            "likes_acoustic": False
+        }),
+        ("Chill Lofi", {
+            "favorite_genre": "lofi",
+            "favorite_mood": "focused",
+            "target_energy": 0.40,
+            "likes_acoustic": False
+        }),
+        ("Deep Intense Rock", {
+            "favorite_genre": "rock",
+            "favorite_mood": "intense",
+            "target_energy": 0.91,
+            "likes_acoustic": False
+        }),
+        # Edge case: high energy but sad mood
+        ("Conflicted Listener", {
+            "favorite_genre": "folk",
+            "favorite_mood": "sad",
+            "target_energy": 0.90,
+            "likes_acoustic": True
+        }),
+        # Edge case: genre not in catalog
+        ("Niche Taste", {
+            "favorite_genre": "metal",
+            "favorite_mood": "angry",
+            "target_energy": 0.95,
+            "likes_acoustic": False
+        }),
     ]
 
     for label, user_prefs in profiles:
