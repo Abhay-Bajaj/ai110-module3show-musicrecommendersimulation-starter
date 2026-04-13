@@ -42,12 +42,37 @@ class Recommender:
     def recommend(self, user: UserProfile, k: int = 5) -> List[Song]:
         """Returns the top k songs for a given user profile using weighted scoring."""
         # TODO: Implement recommendation logic
-        return self.songs[:k]
+        """Returns the top k songs for a given user profile using weighted scoring."""
+        def score(song: Song) -> float:
+            total = 0.0
+            if song.genre == user.favorite_genre:
+                total += 1.0
+            if song.mood == user.favorite_mood:
+                total += 1.0
+            total += 2.0 * (1 - abs(user.target_energy - song.energy))
+            if user.likes_acoustic and song.acousticness > 0.6:
+                total += 0.5
+            return total
+
+        sorted_songs = sorted(self.songs, key=score, reverse=True)
+        return sorted_songs[:k]
+        ## return self.songs[:k]
 
     def explain_recommendation(self, user: UserProfile, song: Song) -> str:
         """Returns a plain language explanation of why a song was recommended."""
         # TODO: Implement explanation logic
-        return "Explanation placeholder"
+        """Returns a plain language explanation of why a song was recommended."""
+        reasons = []
+        if song.genre == user.favorite_genre:
+            reasons.append(f"genre match ({song.genre})")
+        if song.mood == user.favorite_mood:
+            reasons.append(f"mood match ({song.mood})")
+        energy_proximity = 2.0 * (1 - abs(user.target_energy - song.energy))
+        reasons.append(f"energy proximity (+{energy_proximity:.2f})")
+        if user.likes_acoustic and song.acousticness > 0.6:
+            reasons.append(f"acoustic match ({song.acousticness:.2f})")
+        return ", ".join(reasons) if reasons else "general match based on your profile"
+        ## return "Explanation placeholder"
 
 def load_songs(csv_path: str) -> List[Dict]:
     """
