@@ -29,6 +29,34 @@ Some prompts to answer:
 
 You can include a simple diagram or bullet list if helpful.
 
+Each `Song' stores ten attributes: `id`, `title`, `artist`, `genre`, `mood`, 
+`energy`, `tempo_bpm`, `valence`, `danceability`, and `acousticness`. The 
+`UserProfile` stores the user's `favorite_genre`, `favorite_mood`, `target_energy`, 
+and a boolean `likes_acoustic` flag. The `Recommender` scores each song by comparing 
+it against the user profile using this recipe: 
+
+- +2.0 points for a genre match 
+- +1.0 point for a mood match 
+- +1.0 × (1 - |target_energy - song.energy|) for energy proximity 
+- +0.5 if the user likes acoustic music and the song's acousticness is above 0.6 
+
+Once every song has a score, the list is sorted from highest to lowest and 
+the top `k` results are returned, each paired with a score and a plain language 
+explanation of why it was chosen. The maximum possible score is 4.5. 
+
+**Potential biases:** 
+Because genre is weighted twice as much as mood, the system may overlook 
+songs that are a near-perfect mood and energy match just because they belong to a 
+different genre. It also has no sense of variety, so if five lofi songs all score 
+similarly, the top five results could feel repetitive. Users whose favorite genre is 
+underrepresented in the catalog will consistently get weaker recommendations than 
+users whose genre has many songs in the dataset.
+
+Song features: id, title, artist, genre, mood, energy, tempo_bpm, valence, 
+danceability, acousticness
+
+UserProfile features: favorite_genre, favorite_mood, target_energy, likes_acoustic
+
 ---
 
 ## Getting Started
@@ -208,4 +236,10 @@ A few sentences about what you learned:
 - What surprised you about how your system behaved
 - How did building this change how you think about real music recommenders
 - Where do you think human judgment still matters, even if the model seems "smart"
+```
 
+## 8. Screenshots
+
+1. Working CLI
+
+2. Diverse Profiles
